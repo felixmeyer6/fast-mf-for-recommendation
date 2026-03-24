@@ -1,0 +1,4 @@
+# Core dependencies used by src/ and fast_mf_pipeline.ipynb
+numpy==2.1.3
+pandas==2.3.2
+pyspark==4.1.1
