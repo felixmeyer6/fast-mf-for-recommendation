@@ -1,0 +1,23 @@
+{
+  "num_partitions": 384,
+  "raw_interactions": 7850072,
+  "load_seconds": 18.395378828048706,
+  "deduped_interactions": 6770947,
+  "dedupe_seconds": 6.189725160598755,
+  "filtered_interactions": 3768245,
+  "kcore_seconds": 159.24675607681274,
+  "num_users": 110678,
+  "num_items": 47202,
+  "indexed_interactions": 3768245,
+  "index_seconds": 29.954973936080933,
+  "train_interactions": 3657567,
+  "test_users": 110678,
+  "split_seconds": 5.842589855194092,
+  "weighted_items": 47201,
+  "weights_seconds": 4.216898202896118,
+  "user_histories": 110678,
+  "item_histories": 47201,
+  "history_seconds": 15.843270301818848,
+  "collect_ids_seconds": 1.1372270584106445,
+  "total_prepare_seconds": 240.84068083763123
+}

@@ -27,9 +27,16 @@ def _as_config_dict(config: Any) -> dict[str, Any]:
 
 def storage_level_from_name(name: str) -> StorageLevel:
     upper_name = name.upper()
-    if not hasattr(StorageLevel, upper_name):
-        raise ValueError(f"Unknown storage level: {name}")
-    return getattr(StorageLevel, upper_name)
+    aliases = {
+        # Backward-compatible aliases used in older Spark examples/configs.
+        "MEMORY_ONLY_SER": "MEMORY_ONLY",
+        "MEMORY_AND_DISK_SER": "MEMORY_AND_DISK",
+    }
+    resolved_name = aliases.get(upper_name, upper_name)
+    if not hasattr(StorageLevel, resolved_name):
+        valid = sorted(attr for attr in dir(StorageLevel) if attr.isupper())
+        raise ValueError(f"Unknown storage level: {name}. Valid values: {', '.join(valid)}")
+    return getattr(StorageLevel, resolved_name)
 
 
 def compute_c_from_item_counts(
